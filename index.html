@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#03070c"
+    >
+
+    <title>VELINO Smart AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+
+
+            <!-- =================================================
+                 VELINO BRAND
+            ================================================== -->
+
+            <div class="brand">
+
+                <div class="brand-logo">
+
+                    <img
+                        src="../assets/velino-smart-ai-logo.png"
+                        alt="VELINO Smart AI"
+                    >
+
+                </div>
+
+
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        VELINO
+                    </div>
+
+                    <div class="brand-subtitle">
+                        SMART AI
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NEW CHAT
+            ================================================== -->
+
+            <button
+                id="newChatButton"
+                class="new-chat"
+                type="button"
+            >
+
+                <span class="new-chat-icon">
+                    +
+                </span>
+
+                <span>
+                    New Chat
+                </span>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             CHAT HISTORY
+        ====================================================== -->
+
+        <div class="history">
+
+            <div class="history-heading">
+
+                <span>
+                    CONVERSATIONS
+                </span>
+
+                <span
+                    class="history-count"
+                    id="historyCount"
+                >
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                id="chatHistory"
+                class="history-list"
+            ></div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             SIDEBAR FOOTER
+        ====================================================== -->
+
+        <div class="sidebar-footer">
+
+
+            <!-- LOCAL AI STATUS -->
+
+            <div class="local-ai-card">
+
+                <div class="status-icon">
+
+                    <span></span>
+
+                </div>
+
+
+                <div class="local-ai-info">
+
+                    <div class="local-ai-title">
+                        LOCAL AI
+                    </div>
+
+                    <div class="local-ai-status">
+                        Ollama Connected
+                    </div>
+
+                </div>
+
+
+                <div class="connection-check">
+                    ✓
+                </div>
+
+            </div>
+
+
+
+            <!-- VERSION -->
+
+            <div class="sidebar-meta">
+
+                <span>
+                    VELINO V1.1
+                </span>
+
+                <span>
+                    •
+                </span>
+
+                <span>
+                    LOCAL
+                </span>
+
+            </div>
+
+
+
+            <!-- DEVELOPER -->
+
+            <div class="developer">
+
+                Developed by
+
+                <strong>
+                    Shiva Velishoju
+                </strong>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- =====================================================
+             TOP BAR
+        ====================================================== -->
+
+        <header class="topbar">
+
+
+            <!-- MOBILE BRAND -->
+
+            <!-- <div class="mobile-brand">
+
+                <div class="mobile-brand-logo">
+
+                    <img
+                        src="../assets/velino-smart-ai-logo.png"
+                        alt="VELINO"
+                    >
+
+                </div>
+
+
+                <span>
+                    VELINO
+                </span>
+
+            </div> -->
+
+
+
+            <!-- MODEL -->
+
+            <div class="model-selector">
+
+                <div class="model-status"></div>
+
+                <div class="model-name">
+                    VELINO LOCAL
+                </div>
+
+                <div class="model-divider">
+                    /
+                </div>
+
+                <div class="model-version">
+                    QWEN 2.5
+                </div>
+
+                <span class="model-arrow">
+                    ˅
+                </span>
+
+            </div>
+
+
+
+            <!-- TOP ACTIONS -->
+
+            <div class="topbar-actions">
+
+
+                <div class="privacy-pill">
+
+                    <span>
+                        ●
+                    </span>
+
+                    Local
+
+                </div>
+
+
+                <button
+                    id="clearChatButton"
+                    class="icon-button"
+                    type="button"
+                    title="Clear conversation"
+                    aria-label="Clear conversation"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M6 7h12"></path>
+
+                        <path d="M9 7V5h6v2"></path>
+
+                        <path d="M8 7l1 13h6l1-13"></path>
+
+                        <path d="M10 10v7"></path>
+
+                        <path d="M14 10v7"></path>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             CHAT AREA
+        ====================================================== -->
+
+        <section
+            id="chatMessages"
+            class="chat"
+        >
+
+
+            <!-- =================================================
+                 WELCOME SCREEN
+            ================================================== -->
+
+            <div
+                id="welcomeScreen"
+                class="welcome"
+            >
+
+
+                <!-- =================================================
+                     VELINO SMART AI LOGO
+                     REPLACES HOLOGRAPHIC CORE
+                ================================================== -->
+
+                <div class="welcome-logo">
+
+                    <img
+                        src="../assets/velino-smart-ai-logo.png"
+                        alt="VELINO Smart AI"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     WELCOME TITLE
+                ================================================== -->
+
+                <h1>
+
+                    Hello, I am
+
+                    <br>
+
+                    <span>
+                        Velino Smart AI.
+                    </span>
+
+                </h1>
+
+
+
+                <!-- =================================================
+                     DESCRIPTION
+                ================================================== -->
+
+                <p class="welcome-description">
+
+                    Your local AI assistant for
+                    coding, embedded systems, debugging and
+                    VELINO projects.
+
+                </p>
+
+
+
+                <!-- =================================================
+                     QUICK ACTIONS
+                ================================================== -->
+
+                <div class="quick-actions">
+
+
+                    <!-- =================================================
+                         LEARN
+                    ================================================== -->
+
+                    <button
+                        class="quick-action"
+                        type="button"
+                        data-message="Explain ESP32 in simple words."
+                    >
+
+                        <div class="quick-icon blue">
+                            ⚡
+                        </div>
+
+
+                        <div class="quick-content">
+
+                            <span class="quick-title">
+                                Learn
+                            </span>
+
+                            <span class="quick-text">
+                                Explain ESP32
+                            </span>
+
+                        </div>
+
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- =================================================
+                         CODE
+                    ================================================== -->
+
+                    <button
+                        class="quick-action"
+                        type="button"
+                        data-message="Give me a JavaScript example."
+                    >
+
+                        <div class="quick-icon purple">
+                            &lt;/&gt;
+                        </div>
+
+
+                        <div class="quick-content">
+
+                            <span class="quick-title">
+                                Code
+                            </span>
+
+                            <span class="quick-text">
+                                JavaScript example
+                            </span>
+
+                        </div>
+
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- =================================================
+                         EXPLORE
+                    ================================================== -->
+
+                    <button
+                        class="quick-action"
+                        type="button"
+                        data-message="What can you help me with?"
+                    >
+
+                        <div class="quick-icon green">
+                            ✦
+                        </div>
+
+
+                        <div class="quick-content">
+
+                            <span class="quick-title">
+                                Explore
+                            </span>
+
+                            <span class="quick-text">
+                                What can you do?
+                            </span>
+
+                        </div>
+
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOCAL STATUS
+                ================================================== -->
+
+                <div class="welcome-bottom">
+
+                    <span class="pulse-dot"></span>
+
+                    Running locally on your Mac
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             COMPOSER AREA
+        ====================================================== -->
+
+        <div class="composer-area">
+
+
+            <!-- =================================================
+                 THINKING INDICATOR
+            ================================================== -->
+
+            <div
+                id="typingIndicator"
+                class="typing-indicator hidden"
+            >
+
+                <div class="thinking-avatar">
+                    V
+                </div>
+
+
+                <span>
+                    VELINO is thinking
+                </span>
+
+
+                <div class="thinking-dots">
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INPUT
+            ================================================== -->
+
+            <div class="composer-wrapper">
+
+                <div class="composer">
+
+
+                    <!-- TOOLS -->
+
+                    <button
+                        class="composer-add"
+                        type="button"
+                        title="Tools"
+                        aria-label="Tools"
+                    >
+                        +
+                    </button>
+
+
+
+                    <!-- TEXT INPUT -->
+
+                    <textarea
+                        id="messageInput"
+                        rows="1"
+                        placeholder="Message VELINO Smart AI..."
+                        autocomplete="off"
+                        spellcheck="true"
+                    ></textarea>
+
+
+
+                    <!-- INPUT ACTIONS -->
+
+                    <div class="composer-actions">
+
+
+                        <div class="input-hint">
+                            Enter ↵
+                        </div>
+
+
+                        <button
+                            id="sendButton"
+                            class="send-button"
+                            type="button"
+                            title="Send message"
+                            aria-label="Send message"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                width="19"
+                                height="19"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M3 20L21 12L3 4V10L16 12L3 14V20Z"
+                                ></path>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FOOTER NOTE
+            ================================================== -->
+
+            <div class="composer-note">
+
+                <span>
+                    VELINO Smart AI
+                </span>
+
+                <span class="note-dot">
+                    •
+                </span>
+
+                Local &amp; Private
+
+                <span class="note-dot">
+                    •
+                </span>
+
+                Developed by Shiva Velishoju
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     VELINO LOGO SAFETY CSS
+     
+     These rules are intentionally inside the HTML as a final
+     protection against existing CSS rules changing image size.
+========================================================= -->
+
+<style>
+
+/* =========================================================
+   SIDEBAR BRAND
+========================================================= */
+
+.sidebar .brand {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    height: 52px !important;
+
+    min-height: 52px !important;
+
+    max-height: 52px !important;
+
+    flex-shrink: 0 !important;
+
+}
+
+
+/* =========================================================
+   SIDEBAR LOGO CONTAINER
+========================================================= */
+
+.sidebar .brand-logo {
+
+    width: 48px !important;
+
+    height: 48px !important;
+
+    min-width: 48px !important;
+
+    max-width: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    flex: 0 0 48px !important;
+
+    flex-shrink: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+}
+
+
+/* =========================================================
+   SIDEBAR LOGO IMAGE
+========================================================= */
+
+.sidebar .brand-logo img {
+
+    width: 40px !important;
+
+    height: 40px !important;
+
+    min-width: 40px !important;
+
+    max-width: 40px !important;
+
+    min-height: 40px !important;
+
+    max-height: 40px !important;
+
+    flex: 0 0 40px !important;
+
+    display: block !important;
+
+    object-fit: contain !important;
+
+    object-position: center !important;
+
+    position: static !important;
+
+    transform: none !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    animation: none !important;
+
+}
+
+
+/* =========================================================
+   REMOVE OLD V OVERLAY
+========================================================= */
+
+.sidebar .brand-logo::before,
+
+.sidebar .brand-logo::after {
+
+    content: none !important;
+
+    display: none !important;
+
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.sidebar .brand-text {
+
+    min-width: 0 !important;
+
+    flex: 1 1 auto !important;
+
+    overflow: hidden !important;
+
+}
+
+
+/* =========================================================
+   WELCOME LOGO
+========================================================= */
+
+.welcome-logo {
+
+    width: 230px !important;
+
+    height: 230px !important;
+
+    min-width: 230px !important;
+
+    max-width: 230px !important;
+
+    min-height: 230px !important;
+
+    max-height: 230px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    margin: 0 auto 25px !important;
+
+    flex-shrink: 0 !important;
+
+}
+
+
+/* =========================================================
+   WELCOME LOGO IMAGE
+========================================================= */
+
+.welcome-logo img {
+
+    width: 230px !important;
+
+    height: 230px !important;
+
+    min-width: 230px !important;
+
+    max-width: 230px !important;
+
+    min-height: 230px !important;
+
+    max-height: 230px !important;
+
+    display: block !important;
+
+    object-fit: contain !important;
+
+    object-position: center !important;
+
+    position: static !important;
+
+    transform: none !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    animation: none !important;
+
+}
+
+
+/* =========================================================
+   MOBILE BRAND LOGO
+========================================================= */
+
+.mobile-brand {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 8px !important;
+
+}
+
+
+.mobile-brand-logo {
+
+    width: 34px !important;
+
+    height: 34px !important;
+
+    min-width: 34px !important;
+
+    max-width: 34px !important;
+
+    min-height: 34px !important;
+
+    max-height: 34px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    overflow: hidden !important;
+
+}
+
+
+.mobile-brand-logo img {
+
+    width: 30px !important;
+
+    height: 30px !important;
+
+    min-width: 30px !important;
+
+    max-width: 30px !important;
+
+    min-height: 30px !important;
+
+    max-height: 30px !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+}
+
+
+/* =========================================================
+   PREVENT FLEX RESIZING
+========================================================= */
+
+.sidebar,
+
+.sidebar-header,
+
+.sidebar .brand,
+
+.sidebar .brand-logo,
+
+.sidebar .brand-logo img {
+
+    flex-shrink: 0 !important;
+
+}
+
+
+/* =========================================================
+   CHAT IMAGES
+   Do not let message images affect sidebar
+========================================================= */
+
+.chat img {
+
+    max-width: 100%;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .sidebar .brand-logo {
+
+        width: 42px !important;
+
+        height: 42px !important;
+
+        min-width: 42px !important;
+
+        max-width: 42px !important;
+
+        min-height: 42px !important;
+
+        max-height: 42px !important;
+
+        flex-basis: 42px !important;
+
+    }
+
+
+    .sidebar .brand-logo img {
+
+        width: 36px !important;
+
+        height: 36px !important;
+
+        min-width: 36px !important;
+
+        max-width: 36px !important;
+
+        min-height: 36px !important;
+
+        max-height: 36px !important;
+
+    }
+
+
+    .welcome-logo {
+
+        width: 180px !important;
+
+        height: 180px !important;
+
+        min-width: 180px !important;
+
+        max-width: 180px !important;
+
+        min-height: 180px !important;
+
+        max-height: 180px !important;
+
+    }
+
+
+    .welcome-logo img {
+
+        width: 180px !important;
+
+        height: 180px !important;
+
+        min-width: 180px !important;
+
+        max-width: 180px !important;
+
+        min-height: 180px !important;
+
+        max-height: 180px !important;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================================
+     QUICK ACTIONS + INPUT
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+
+        /* =================================================
+           ELEMENTS
+        ================================================== */
+
+        const input =
+            document.getElementById(
+                "messageInput"
+            );
+
+
+        const sendButton =
+            document.getElementById(
+                "sendButton"
+            );
+
+
+
+        /* =================================================
+           QUICK ACTIONS
+        ================================================== */
+
+        document
+            .querySelectorAll(
+                ".quick-action"
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            const message =
+                                button.dataset.message;
+
+
+                            if (
+                                !message ||
+                                !input
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            input.value =
+                                message;
+
+
+                            input.focus();
+
+
+                            if (
+                                sendButton
+                            ) {
+
+                                sendButton.click();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        /* =================================================
+           TEXTAREA AUTO RESIZE
+        ================================================== */
+
+        if (input) {
+
+            input.addEventListener(
+                "input",
+                () => {
+
+                    input.style.height =
+                        "auto";
+
+
+                    input.style.height =
+                        Math.min(
+                            input.scrollHeight,
+                            180
+                        ) + "px";
+
+                }
+            );
+
+
+
+            /* =================================================
+               ENTER TO SEND
+               SHIFT + ENTER = NEW LINE
+            ================================================== */
+
+            input.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Enter" &&
+                        !event.shiftKey
+                    ) {
+
+                        event.preventDefault();
+
+
+                        if (
+                            sendButton
+                        ) {
+
+                            sendButton.click();
+
+                        }
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+
+<!-- =========================================================
+     VELINO RENDERER
+========================================================= -->
+
+<script src="renderer.js"></script>
+
+
+</body>
+
+</html>
